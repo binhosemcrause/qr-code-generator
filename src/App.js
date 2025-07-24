@@ -5,10 +5,26 @@ import './App.css';
 function App() {
   const [url, setUrl] = useState('');
   const [input, setInput] = useState('');
+  const [error, setError] = useState('');
   const svgRef = useRef(null);
+
+  const isValidUrl = (string) => {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  };
 
   const handleGenerate = (e) => {
     e.preventDefault();
+    if (!isValidUrl(input)) {
+      setError('Please enter a valid URL (e.g., https://example.com)');
+      setUrl('');
+      return;
+    }
+    setError('');
     setUrl(input);
   };
 
@@ -53,9 +69,10 @@ function App() {
           Generate
         </button>
       </form>
+      {error && <div style={{ color: '#ff4d4f', marginBottom: 16 }}>{error}</div>}
       {url && (
         <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ background: '#fff', padding: 8, borderRadius: 8 }}>
+          <div className="qr-container">
             <QRCodeSVG value={url} size={256} ref={svgRef} />
           </div>
           <button onClick={handleDownload} style={{ marginTop: 16, padding: '8px 16px', fontSize: 16 }}>
