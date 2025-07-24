@@ -1,0 +1,64 @@
+body {
+  background: #181a20;
+  color: #f1f1f1;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.App {
+  text-align: center;
+  background: #181a20;
+  min-height: 100vh;
+  color: #f1f1f1;
+}
+
+h1 {
+  color: #fff;
+  margin-bottom: 32px;
+  letter-spacing: 1px;
+}
+
+input[type="text"] {
+  background: #23262f;
+  color: #f1f1f1;
+  border: 1px solid #353945;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 16px;
+  outline: none;
+  transition: border 0.2s;
+}
+input[type="text"]:focus {
+  border: 1.5px solid #61dafb;
+}
+
+button {
+  background: #61dafb;
+  color: #181a20;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+button:hover {
+  background: #21a1f3;
+  color: #fff;
+}
+
+/* QR code container */
+.qr-container {
+  background: #23262f;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 #00000033;
+  display: inline-block;
+}
+
+/* Remove unused styles */
+.App-logo, .App-header, .App-link {
+  display: none;
+}
